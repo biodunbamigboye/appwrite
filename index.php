@@ -27,7 +27,7 @@ return function ($context) {
 
   if ($context->req->method === 'GET') {
     // return $context->res->send('Hello, World test jagons!');
-     return $context->res->send($html, 200, ['content-type' => 'text/html']);
+     return $context->res->send($html);
   }
 
   if ($context->req->method === 'POST' && $context->req->headers['content-type'] === 'application/x-www-form-urlencoded') {
