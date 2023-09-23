@@ -6,12 +6,13 @@ use Appwrite\Client;
 use Appwrite\Exception;
 use Appwrite\Services\Databases;
 
+$html = '<p>Test Html Data</p>';
 
 return function ($context) {
   global $html;
 
   if ($context->req->method === 'GET') {
-    return $context->res->send('Hello, World test jagons!');
+    return $context->res->send($html, 200, ['content-type' => 'text/html']);
   }
 
   if ($context->req->method === 'POST' && $context->req->headers['content-type'] === 'application/x-www-form-urlencoded') {
