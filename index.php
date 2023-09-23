@@ -2,32 +2,16 @@
 
 require(__DIR__ . '/vendor/autoload.php');
 
-// use Appwrite\Client;
-// use Appwrite\Exception;
-// use Appwrite\Services\Databases;
+use Appwrite\Client;
+use Appwrite\Exception;
+use Appwrite\Services\Databases;
 
-$html = '<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Contact Form</title>
-  </head>
-  <body>
-    <form action="/" method="POST">
-      <input type="text" id="name" name="name" placeholder="Name" required>
-      <input type="email" id="email" name="email" placeholder="Email" required>
-      <textarea id="content" name="content" placeholder="Message" required></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </body>
-</html>';
 
 return function ($context) {
   global $html;
 
   if ($context->req->method === 'GET') {
-    // return $context->res->send('Hello, World test jagons!');
-     return $context->res->send($html);
+    return $context->res->send('Hello, World test jagons!');
   }
 
   if ($context->req->method === 'POST' && $context->req->headers['content-type'] === 'application/x-www-form-urlencoded') {
