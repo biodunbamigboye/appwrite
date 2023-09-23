@@ -6,10 +6,9 @@ use Appwrite\Client;
 use Appwrite\Exception;
 use Appwrite\Services\Databases;
 
-$html = '<p>Test Html Data</p>';
 
 return function ($context) {
-  global $html;
+    $html = '<p>Test Html Data</p>';
 
   if ($context->req->method === 'GET') {
     return $context->res->send($html);
