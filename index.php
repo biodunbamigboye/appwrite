@@ -44,7 +44,7 @@ return function ($context) {
       ->setKey(getenv('APPWRITE_API_KEY'));
 
     $databases = new Databases($client);
-    $document = $databases->createDocument('[DATABASE_ID]', '[MESSAGES_COLLECTION_ID]', ID::unique(), $message);
+    $document = $databases->createDocument('test_db_id', 'test_collection_id', 'unique()' , $message);
 
     return $context->res->send("Message sent");
   }
