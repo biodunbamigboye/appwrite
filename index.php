@@ -30,6 +30,8 @@ return function ($context) {
 
   if ($context->req->method === 'POST' && $context->req->headers['content-type'] === 'application/x-www-form-urlencoded') {
     \parse_str($context->req->body, $formData);
+
+    return $context->res->send(json_encode($formData));
     
     $message = [
       'name' => $formData['name'],
