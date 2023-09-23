@@ -2,9 +2,9 @@
 
 require(__DIR__ . '/vendor/autoload.php');
 
-use Appwrite\Client;
-use Appwrite\Exception;
-use Appwrite\Services\Databases;
+// use Appwrite\Client;
+// use Appwrite\Exception;
+// use Appwrite\Services\Databases;
 
 $html = '<!doctype html>
 <html lang="en">
