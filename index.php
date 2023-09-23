@@ -26,7 +26,8 @@ return function ($context) {
   global $html;
 
   if ($context->req->method === 'GET') {
-    return $context->res->send($html, 200, ['content-type' => 'text/html']);
+    // return $context->res->send($html, 200, ['content-type' => 'text/html']);
+    return $context->log('Hello from Appwrite!');
   }
 
   if ($context->req->method === 'POST' && $context->req->headers['content-type'] === 'application/x-www-form-urlencoded') {
