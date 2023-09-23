@@ -1,56 +1,39 @@
 <?php
 
-echo "Hello World!";
+require(__DIR__ . '/../vendor/autoload.php');
 
-// require('./vendor/autoload.php');
+use Appwrite\Client;
+use Appwrite\Exception;
 
-// use Appwrite\Client;
-// use Appwrite\Exception;
-// use Appwrite\Services\Databases;
+// This is your Appwrite function
+// It's executed each time we get a request
+return function ($context) {
+    // Why not try the Appwrite SDK?
+    //
+    // $client = new Client();
+    // $client
+    //     ->setEndpoint('https://cloud.appwrite.io/v1')
+    //     ->setProject(getenv('APPWRITE_FUNCTION_PROJECT_ID'))
+    //      ->setKey(getenv('APPWRITE_API_KEY'));
 
-// $html = '<!doctype html>
-// <html lang="en">
-//   <head>
-//     <meta charset="utf-8">
-//     <title>Contact Form</title>
-//   </head>
-//   <body>
-//     <form action="/" method="POST">
-//       <input type="text" id="name" name="name" placeholder="Name" required>
-//       <input type="email" id="email" name="email" placeholder="Email" required>
-//       <textarea id="content" name="content" placeholder="Message" required></textarea>
-//       <button type="submit">Submit</button>
-//     </form>
-//   </body>
-// </html>';
+    // You can log messages to the console
+    $context->log('Hello, Logs!');
 
-// return function ($context) {
-//   global $html;
+    // If something goes wrong, log an error
+    $context->error('Hello, Errors!');
 
-//   if ($context->req->method === 'GET') {
-//     return $context->res->send($html, 200, ['content-type' => 'text/html']);
-//   }
+    // The `req` object contains the request data
+    if ($context->req->method === 'GET') {
+        // Send a response with the res object helpers
+        // `res.send()` dispatches a string back to the client
+        return $context->res->send('Hello, World!');
+    }
 
-//   if ($context->req->method === 'POST' && $context->req->headers['content-type'] === 'application/x-www-form-urlencoded') {
-//     \parse_str($context->req->body, $formData);
-    
-//     $message = [
-//       'name' => $formData['name'],
-//       'email' => $formData['email'],
-//       'content' => $formData['content']
-//     ];
-
-//     $client = new Client();
-//     $client
-//       ->setEndpoint('https://cloud.appwrite.io/v1')
-//       ->setProject(getenv('APPWRITE_FUNCTION_PROJECT_ID'))
-//       ->setKey(getenv('APPWRITE_API_KEY'));
-
-//     $databases = new Databases($client);
-//     $document = $databases->createDocument('[DATABASE_ID]', '[MESSAGES_COLLECTION_ID]', ID::unique(), $message);
-
-//     return $context->res->send("Message sent");
-//   }
-
-//   return $context->res->send('Not found', 404);
-// };
+    // `res.json()` is a handy helper for sending JSON
+    return $context->res->json([
+        'motto' => 'Build Fast. Scale Big. All in One Place.',
+        'learn' => 'https://appwrite.io/docs',
+        'connect' => 'https://appwrite.io/discord',
+        'getInspired' => 'https://builtwith.appwrite.io',
+    ]);
+};
