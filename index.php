@@ -45,7 +45,6 @@ return function ($context) {
       ->setKey('91605aee67be074084206623fa6a0854c1dfcb69c7157bb98aa21a7f14b8817a8054ffec3e2b00e0261594ac542040d1f6ea1597fb4a38d079328df1c7ce56e882296cee8701ef215a4617ecfe8db3e14f1aeef97c30d48fda15d52455669010228d8b3781053b7782bdf0e462c4d8b71f26823327d71e7fb59ed1c6f4403518');
 
     $databases = new Databases($client);
-    return $context->res->send("Hereeee");
     $document = $databases->createDocument('test_db_id', 'test_collection_id', 'unique()' , $message);
 
     return $context->res->send("Message sent");
